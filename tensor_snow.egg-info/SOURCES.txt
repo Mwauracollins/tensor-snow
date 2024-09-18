@@ -1,0 +1,9 @@
+LICENSE
+setup.py
+src/tensor.cpp
+t-snow/tensor/__init__.py
+t-snow/tensor/tensor.py
+tensor_snow.egg-info/PKG-INFO
+tensor_snow.egg-info/SOURCES.txt
+tensor_snow.egg-info/dependency_links.txt
+tensor_snow.egg-info/top_level.txt
