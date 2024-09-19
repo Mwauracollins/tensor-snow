@@ -1,14 +1,12 @@
 import ctypes
 import os
 
-# Detect system OS and load the correct shared library
 lib_ext = ".dll" if os.name == "nt" else ".so"
 lib_path = os.path.join(os.path.dirname(__file__), '../../build/libtensor' + lib_ext)
 
 tensor_lib = ctypes.CDLL(lib_path)
 
 
-# Define the C structures in Python (optional, depending on your implementation)
 class Tensor(ctypes.Structure):
     _fields_ = [
         ("data", ctypes.POINTER(ctypes.c_float)),
@@ -37,7 +35,6 @@ def tensor_get_item(tensor, indices):
     indices_array = (ctypes.c_int * len(indices))(*indices)
     return tensor_lib.tensorGetItem(tensor, indices_array)
 
-# Example usage
 if __name__ == "__main__":
     t = create_tensor([1.0, 2.0, 3.0, 4.0], [4])
-    print(tensor_get_item(t, [2]))  # Output: 3.0
+    print(tensor_get_item(t, [2]))  
